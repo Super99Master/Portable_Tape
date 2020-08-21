@@ -29,6 +29,12 @@ The last thing it does **IF ENABLED** it deletes *%appdata%/Tape*. Deleting the 
 * Run PortableTape at least once
 * Go to your Tape folder (where you placed PortableTape.exe)
 * Then open "portable" (is a folder)
-* Open with any editor Settings.ini
+* Open with any editor "Settings.ini"
 * Change "DeleteTapeFolder = False" to "DeleteTapeFolder = True"
 * Save
+
+## TODO
+The .exe file is being created using PyInstaller using --onefile.
+This is grate for the purpuse of this project but it's really slow to open, 4 seconds more or less.
+In the end it works, if u don't mine clicking it and having to wait then it's perfect.
+For those who really mind the 4 seconds, i'll try my best in optimizing it but there is a limit on how much i can speed up PyInstaller --onefile

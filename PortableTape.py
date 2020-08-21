@@ -1,11 +1,14 @@
 from os import getenv,makedirs,path,remove,startfile,system,utime
 from shutil import rmtree
 from time import sleep
+from sys import exit
+from subprocess import run
 
 SyncFileLocation = path.dirname(path.realpath(__file__))+"/portable"
 TapeFileLocation = getenv("APPDATA") + "/Tape"
 Files=["window-state-main.json","Preferences","Local Storage/file__0.localstorage"]
 Folder=["Local Storage"]
+IsExe=False
 
 def CompareFiles(First,Second):
     #Get difference between Last Modify tag in 
@@ -51,7 +54,7 @@ def CheckFolder():
         pass
 
 def Sync():
-    #Run the Sync for all files specified
+    #Calls CompareFiles for every file in Files
     for file in Files:
         CompareFiles(TapeFileLocation+"/"+file,SyncFileLocation+"/"+file)
 
@@ -69,14 +72,13 @@ def ReadIniValue(Variable):
         return None
 
 def FirstRun():
-    #Autoinstalling and autodeliting funciton
+    #Autoinstalling and auto-deleting funciton
     #It renames Tape.exe to Real_Tape.exe
     #It create a copy of itself and name it Tape.exe (this is to save shortcut created)
-    #then it runs the newcopy who delete the old version of himself.
+    #then it runs the newcopy who delete the old version of itself.
     try:
         makedirs(SyncFileLocation)
     except FileExistsError:
-        print("f")
         name=ReadIniValue("OldName")
         if name!="None":
             sleep(.5)
@@ -88,19 +90,28 @@ def FirstRun():
                 f.write(a)
         return
     selfname=path.basename(__file__)
+    if IsExe:
+         #using pyInstaller builder this function returns his name in py form (PortableTape.py)
+         #so we have to correct it
+        selfname=selfname.replace(".py",".exe")
     with open(SyncFileLocation+"/Settings.ini","w") as f:
         f.write(f"OldName = {selfname}\nDeleteTapeFolder = False\n")
     a=path.dirname(path.realpath(__file__))
     CopyFile(a+"\\Tape.exe",a+"/Real_Tape.exe")
-    CopyFile(a+"\\"+selfname,a+"/Tape.py")
-    startfile(a+"/Tape.py")
-    quit()
+
+    if IsExe:
+        NewName="/Tape.exe"
+    else:
+        NewName="/Tape.py"
+    CopyFile(a+"\\"+selfname,a+NewName)
+    startfile(a+NewName)
+    exit()
 
 FirstRun()
 CheckFolder()
 Sync()
 Path=(fr'"{path.dirname(path.realpath(__file__))}\Real_Tape.exe"')
-system(Path)
+run(Path, shell=False)
 Sync()
 if ReadIniValue("DeleteTapeFolder")=="True":
     rmtree(TapeFileLocation)

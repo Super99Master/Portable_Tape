@@ -11,7 +11,7 @@ This allow Tape to be 100% portable.
 | Windows | %LOCALAPPDATA%\Programs\Tape |
 
 * Uninstall Tape
-* Download the PortableTape.exe and place it in the same folder
+* Download the [PortableTape.exe](https://github.com/Super99Master/Portable_Tape/raw/master/PortableTape.exe) and place it in the same folder
 * Run it
 
 ## How It Works

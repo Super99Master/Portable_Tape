@@ -5,12 +5,12 @@ This allow Tape to be 100% portable.
 ## Installation
 * Download and install [Aeriform Tape](https://www.aeriform.io/docs/tape)
 * Copy the installation folder of Tape where you want it to be (Usb, GDrive OneCloud)
-* Uninstall Tape
 
 | OS | Location |
 | ------ | ------ |
 | Windows | %LOCALAPPDATA%\Programs\Tape |
 
+* Uninstall Tape
 * Download the PortableTape.exe and place it in the same folder
 * Run it
 

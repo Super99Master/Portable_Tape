@@ -16,13 +16,13 @@ This allow Tape to be 100% portable.
 
 ## How It Works
 
-The first PortableTape.exe is started it rename the real Tape.exe in Real_Tape.exe and rename himself Tape.exe
-With this all your shortcut keep working even if the Application is different.
+The first time PortableTape.exe is started it rename the real Tape.exe in Real_Tape.exe and rename himself Tape.exe
+With this all your shortcut should keep working even if the Application is different.
 
-PortableTape then check for Tape file is *%appdata%/Tape* and compares his saved file to the files saved on the pc.
+PortableTape then check for Tape file is *%appdata%/Tape* and compares them to his saved file (./portable)
 The newer one gets copied to the other location. 
-Then it runs Real_Tape.exe and if will detect the copied files and load them.
-When Real_Tape.exe is closed PortableTape will recheck files too see if any of them changes and copy the newer one
+Then it runs Real_Tape.exe and it will detect the copied files and load them.
+When Real_Tape.exe is closed PortableTape will recheck each file to see if any of them changed and copy the newer one.
 The last thing it does **IF ENABLED** it deletes *%appdata%/Tape*. Deleting the last proof of ever running the software on your pc.
 
 ## Enable AppData CleanUp

@@ -4,7 +4,7 @@ This allow Tape to be 100% portable.
 
 ## Installation
 * Download and install [Aeriform Tape](https://www.aeriform.io/docs/tape)
-* Copy the installetion folder of Tape where you want it to be (Usb, GDrive OneCloud)
+* Copy the installation folder of Tape where you want it to be (Usb, GDrive OneCloud)
 * Uninstall Tape
 
 | OS | Location |
@@ -16,13 +16,13 @@ This allow Tape to be 100% portable.
 
 ## How It Works
 
-The first time PortableTape.exe is started it rename the real Tape.exe in Real_Tape.exe and rename himself Tape.exe  
+The first time PortableTape.exe is started it renames the real *Tape.exe* in *Real_Tape.exe* and renames itself *Tape.exe*  
 With this all your shortcut should keep working even if the Application is different.
 
 PortableTape then check for Tape file in *%appdata%/Tape* and compares them to his saved file (./portable).  
 The newer one gets copied to the other location.  
-Then it runs Real_Tape.exe and it will detect the copied files and load them.  
-When Real_Tape.exe is closed PortableTape will recheck each file to see if any of them changed and copy the newer one.  
+Then it runs *Real_Tape.exe* and it will detect the copied files and load them.  
+When *Real_Tape.exe* is closed PortableTape will recheck each file to see if any of them changed and copy the newer one.  
 The last thing it does **IF ENABLED** it deletes *%appdata%/Tape*. Deleting the last proof of ever running the software on your pc.  
 
 ## Enable AppData CleanUp

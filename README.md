@@ -33,10 +33,6 @@ The last thing it does **IF ENABLED** it deletes *%appdata%/Tape*. Deleting the 
 * Change "DeleteTapeFolder = False" to "DeleteTapeFolder = True"
 * Save
 
-## Bugs
-* When you run the shortcut of the new Tape.exe with a Environment Variables (Es: %TapeFolder%/Tape.exe)  
-PyInstaller fucks up the location of the .exe, running it in the folder of the shortcut itself, crashing the program. 
-
 ## TODO
 The .exe file is being created by PyInstaller using --onefile.  
 This is great for the purpose of this project but it's really slow to open, 4 seconds more or less.  

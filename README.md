@@ -1,3 +1,4 @@
+# Deprecated in favor of [MultyTape](https://github.com/Super99Master/MultyTape)
 # Portable Tape
 Portable tabe is an excutable that allows to have all needed Tape files in a single forlder.
 This allow Tape to be 100% portable.
